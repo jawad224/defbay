@@ -10990,13 +10990,13 @@ footer .widget_services ul li {
 /*widget Getintuch*/
 .footer-top {
     padding: 80px 0 20px;
-	background-color:#222845;
+	background-color:#4d4d4d;
 }
 .footer-top.overlay-black-dark:after {
     opacity: 0.85;
 }
 .footer-bottom {
-    background-color:#171d36;
+    background-color:#4d4d4d;
     padding: 25px 0;
     color: #c6cffa;
     font-size: 14px;
