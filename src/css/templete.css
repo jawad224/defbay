@@ -11,7 +11,7 @@
 }
 .fullwidth .header-nav .nav > li.active > a,
 .fullwidth .header-nav .nav > li:hover > a{
-	background-color:#2e55fa;
+	background-color:#f7931e;
 	color:#fff;
 }
 .extra-nav{
@@ -125,7 +125,7 @@
 .job-categories .icon-bx-wraper{
 	padding: 40px 10px;
 	margin-bottom: 20px;
-	background: #2e55fa;
+	background: #f7931e;
 	border-radius: 10px;
 	text-align:center;
 	-moz-transition:all 0.5s;
@@ -178,7 +178,7 @@
 	height: 0;
 }
 .job-categories .icon-bx-wraper:hover{
-	background-color:#2e55fa;
+	background-color:#f7931e;
 	transform: scale(1.05);
 	-moz-transform: scale(1.05);
 	-webkit-transform: scale(1.05);
@@ -530,7 +530,7 @@
 	
 }
 .slick-slide.slick-active.slick-current + .slick-active .testimonial-text{
-	background-color:#2e55fa;
+	background-color:#f7931e;
 }
 .slick-slide.slick-active.slick-current + .slick-active .testimonial-text p{
 	color: #fff;
@@ -557,7 +557,7 @@
 .slick-slide.slick-active.slick-current + .slick-active .testimonial-text:after{
 	border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 15px solid #2e55fa;
+    border-top: 15px solid #f7931e;
 }
 
 /* browse-job */
@@ -648,7 +648,7 @@
 	border-radius:0;
 	background-color: transparent;
 	border-width: 0 0 2px 0;
-	border-color:#2e55fa;
+	border-color:#f7931e;
 }
 .find-job-bx .form-control{
 	padding:0;
@@ -690,7 +690,7 @@
 .find-job-bx .bootstrap-select .dropdown-toggle:focus, 
 .find-job-bx .bootstrap-select .dropdown-toggle:hover{
 	border-width: 0 0 2px 0 !important;
-	border-color: #2e55fa !important;
+	border-color: #f7931e !important;
 	background-color: transparent !important;
 	border-radius: 0;
 	height: 50px;
@@ -755,7 +755,7 @@
 	position:relative;
 }
 .post-job-bx .post-bx:hover{
-	border-color:#2e55fa;
+	border-color:#f7931e;
 }
 .post-job-bx > li,
 .cv-manager > li{
@@ -931,7 +931,7 @@
 	-o-transition:all 0.5s;
 }
 .city-bx:hover:after{
-	background-color:#2e55fa;
+	background-color:#f7931e;
 	opacity:0.95;
 }
 .city-info{
@@ -1123,7 +1123,7 @@
 	width: 30px;
 	height: 30px;
 	border-radius: 30px;
-	border: 1px solid #2e55fa;
+	border: 1px solid #f7931e;
 	line-height: 30px;
 	text-align: center;
 	margin-left: 5px;
@@ -1135,7 +1135,7 @@
 .canditate-des  {
 	position: relative;
 	display: inline-block;
-	border: 2px solid #2E55FA;
+	border: 2px solid #f7931e;
 	outline-offset: 3px;
 	border-radius: 100%;
 	width: 150px;
@@ -1151,7 +1151,7 @@
 	right: 0;
 	box-shadow: 0 0 10px 0 rgba(0,24,128,0.1);
 	border-radius: 100%;
-	color: #2E55FA;
+	color: #f7931e;
 	overflow: hidden;
 }
 .candidate-info img {
@@ -1181,7 +1181,7 @@
 .candidate-info ul li a:hover,
 .candidate-info ul li a.active{
     background: #e1e7ff;
-	border-left-color: #2e55fa;
+	border-left-color: #f7931e;
 }
 .candidate-info ul li a span{
 	transition: all 0.5s;
@@ -1218,7 +1218,7 @@
 .canditate-des::before {
     content: "";
     position: absolute;
-    background-color: #2e55fa;
+    background-color: #f7931e;
     height: 115%;
     width: 2px;
     left: 50%;
@@ -1235,7 +1235,7 @@
     left: -15px;
     top: 50%;
     width: 120%;
-    background-color: #2e55fa;
+    background-color: #f7931e;
     height: 2px;
     z-index: -1;
 }
@@ -1333,7 +1333,7 @@
 /* Jobs Link */
 .job-links .fa-download,
 .job-links .fa-eye{
-    background-color: #2e55fa;
+    background-color: #f7931e;
     color: #fff;
     border: 0;
     border-radius: 5px;
@@ -1348,7 +1348,7 @@
     padding: 7px;
 }
 .pencil .fa-pencil {
-    background-color: #2e55fa;
+    background-color: #f7931e;
     color: #fff;
     border: 0;
     border-radius: 5px;
@@ -1669,7 +1669,7 @@
 	color: #333;
 }
 .feature .custom-control .custom-control-label::before {
-	border: 2px solid #2e55fa;
+	border: 2px solid #f7931e;
 }
 
 /* LIKE BTN ===================== */
@@ -1702,7 +1702,7 @@
 	left: 0;
 	height: 30px;
 	width: 30px;
-	border: 1px solid #2e55fa;
+	border: 1px solid #f7931e;
 	border-radius: 20px;
 }
 .like-btn input:checked ~ .checkmark {
@@ -1716,7 +1716,7 @@
 .like-btn input:checked ~ .checkmark:before {
 	width: 100%;
 	height: 100%;
-	background-color:#2e55fa;
+	background-color:#f7931e;
 	left: 0;
 	top: 0;
 	border-radius: 20px;
@@ -1737,7 +1737,7 @@
     position: absolute;
     font-size: 16px;
     font-weight: normal;
-    color: #2e55fa;
+    color: #f7931e;
 }
 .comment-reply-link:hover {
     color: #333 !important;
@@ -2069,7 +2069,7 @@
 }
 
 .site-header.border-bottom .main-bar-wraper{
-	border-bottom: 2px solid #2e55fa;
+	border-bottom: 2px solid #f7931e;
 }
 
 /* Company logo wg  */
@@ -2302,10 +2302,10 @@
 	border-radius: 0;
 	background-color: transparent;
 	border-width: 0 0 2px 0;
-	border-color: #2e55fa;
+	border-color: #f7931e;
 }
 
 .site-filters.style1 .nav-item .nav-link.active{
 	background-color: transparent;
-	color: #2e55fa;
+	color: #f7931e;
 }

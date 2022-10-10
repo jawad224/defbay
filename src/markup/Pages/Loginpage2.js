@@ -119,7 +119,7 @@ function Login (props) {
 						<div className="row">
 							<div className="col-lg-12 text-center">
 								<span className="float-left">© Copyright by <i className="fa fa-heart m-lr5 text-red heart"></i>
-								<Link to={"#"}>DexignZone </Link> </span>
+								<a href="//hnhtechsolutions.com/" target='blank'>HnH Tech Solutions </a> </span>
 								<span className="float-right">
 									All rights reserved.
 								</span>
