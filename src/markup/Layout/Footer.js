@@ -72,7 +72,7 @@ function Footer(){
 					<div className="row">
 						<div className="col-lg-12 text-center">
 							<span> © Copyright by <i className="fa fa-heart m-lr5 text-red heart"></i>
-							<Link to={''}>DexignZone </Link> All rights reserved.</span> 
+							<Link to={'https://hnhtechsolutions.com/'}>HnH Tech Solutions </Link> All rights reserved.</span> 
 						</div>
 					</div>
 				</div>

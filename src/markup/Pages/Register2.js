@@ -101,7 +101,7 @@ function Register2(props) {
 								<div className="bottom-footer clearfix m-t10 m-b20 row text-center">
 									<div className="col-lg-12 text-center">
 										<span> © Copyright by <i className="fa fa-heart m-lr5 text-red heart"></i>
-										<Link to= {''} >DexignZone </Link> All rights reserved.</span> 
+										<a href="//hnhtechsolutions.com/" target='blank'>HnH Tech Solutions </a> All rights reserved.</span> 
 									</div>
 								</div>	
 							</div>
