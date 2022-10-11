@@ -65,7 +65,7 @@ function Login (props) {
 								<div className="login-2 submit-resume p-a30 seth">
 									<div className="nav">
 										<form onSubmit={onLogin} className="col-12 p-a0 ">
-											<p className="font-weight-600">If you have an account with us, please log in.</p>
+											<p className="font-weight-600 text-white">If you have an account with us, please log in.</p>
 											{props.errorMessage && (
 												<div className='bg-red-300 text-red-900 border border-red-900 p-1 my-2'>
 													{props.errorMessage}
@@ -104,7 +104,8 @@ function Login (props) {
 											</div>
 											<div className="text-center">
 												<button className="site-button float-left">login</button>
-												<Link  to="register-2" className="site-button-link forget-pass m-t15 float-right"><i className="fa fa-unlock-alt"></i> Sign up</Link> 
+												{/* <Link  to="register-2" className="site-button-link forget-pass m-t15 float-right"><i className="fa fa-unlock-alt"></i> Sign up</Link>  */}
+												<button className="site-button float-right"><i className="fa fa-unlock-alt"></i> Sign up</button>
 											</div>
 										</form>
 									</div>
