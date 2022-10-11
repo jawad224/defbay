@@ -1,13 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import Header from './../Layout/Header';
-import Footer from './../Layout/Footer';
 import CountUp from 'react-countup';
+import { Link } from 'react-router-dom';
+import Featureblog from './../Element/Featureblog';
 import IndexBanner from './../Element/IndexBanner';
 import Jobcategories from './../Element/Jobcategories';
-import Featureblog from './../Element/Featureblog';
 import Jobsection from './../Element/Jobsection';
 import Owltestimonial from './../Element/Owlblog1';
+import Footer from './../Layout/Footer';
+import Header2 from '../Layout/Header2';
 
 //Images
 var bnr2 = require('./../../images/background/bg4.jpg');
@@ -16,7 +16,7 @@ var bnr3 = require('./../../images/lines.png');
 function Homepage(){
 	return(
 		<div className="page-wraper">
-			<Header />
+			<Header2 />
 			<div className="page-content">
 				<IndexBanner />
 				<div className="section-full job-categories content-inner-2 bg-white">

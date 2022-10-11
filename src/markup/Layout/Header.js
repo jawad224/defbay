@@ -66,7 +66,7 @@ class Header extends Component{
 								<div className="extra-nav">
 									<div className="extra-cell">
 										<Link to={"/register-2"} className="site-button"><i className="fa fa-user"></i> Sign Up</Link>
-											{/* <Link to ={'#'} title="READ MORE" onClick={this.handleShow}  className="site-button"><i className="fa fa-lock"></i> login </Link> */}
+										{/* <Link to ={'#'} title="READ MORE" onClick={this.handleShow}  className="site-button"><i className="fa fa-lock"></i> login </Link> */}
 										
 										<Logout />
 									</div>
@@ -77,11 +77,22 @@ class Header extends Component{
 										<Link to={'/'} className="dez-page"><img src={logo2} alt="" /></Link>
 									</div>
 									<ul className="nav navbar-nav">
-										<li className=""> 
-										
+										<li className="active"> 
 											<Link to={'/'} >Home</Link>
 										</li>
-										<li >
+										<li className=""> 
+											<Link to={'/about-us'} >About Us</Link>
+										</li>
+										<li className=""> 
+											<Link to={'/jobs-profile'} >Profile</Link>
+										</li>
+										<li className=""> 
+											<Link to={'/contact'} >Contact</Link>
+										</li>
+										<li className=""> 
+											<Link to={'/blog-left-img'} >Blog</Link>
+										</li>
+										{/* <li >
 											<Link to={'#'} >For Candidates <i className="fa fa-chevron-down"></i></Link>
 											<ul className="sub-menu">
 												<li><Link to={"/jobs-profile"} className="dez-page">My Profile<span className="new-page">New</span></Link></li>
@@ -135,13 +146,13 @@ class Header extends Component{
 														
 													</ul>
 												</li>
-												{/* <li><Link to={'#'} className="dez-page">Login <i className="fa fa-angle-right"></i></Link>
+												<li><Link to={'#'} className="dez-page">Login <i className="fa fa-angle-right"></i></Link>
 													<ul className="sub-menu">
 														<li><Link to={"/login"} className="dez-page">login 1</Link></li>
 														<li><Link to={"/login-2"} className="dez-page">login 2 <span className="new-page">New</span></Link></li>
 														<li><Link to={"/login-3"} className="dez-page">login 3 <span className="new-page">New</span></Link></li>
 													</ul>
-												</li> */}
+												</li>
 												<li><Link to={'#'} className="dez-page">register <i className="fa fa-angle-right"></i></Link>
 													<ul className="sub-menu">
 														<li><Link to={"/register"} className="dez-page">register 1</Link></li>
@@ -163,7 +174,7 @@ class Header extends Component{
 												<li><Link to={"/blog-left-img"} className="dez-page">Left Image Sidebar</Link></li>
 												<li><Link to={"/blog-details"} className="dez-page">Blog Details</Link></li>
 											</ul>
-										</li>
+										</li> */}
 									</ul>			
 								</div>
 							</div>

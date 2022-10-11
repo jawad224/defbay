@@ -77,13 +77,13 @@ function Register2(props) {
 											</div>
 											<div className="form-group text-left">
 												<button type="submit" className="site-button dz-xs-flex m-r5">Sign me up</button>
-												<span className="custom-control custom-checkbox">
+												{/* <span className="custom-control custom-checkbox">
 													<input type="checkbox" className="custom-control-input" id="check1" name="example1" />
 													<label className="custom-control-label" htmlFor="check1">Remember me</label>
-												</span>
+												</span> */}
 												<Link data-toggle="tab" to="#forgot-password" className="forget-pass m-l5"><i className="fa fa-unlock-alt"></i> Forgot Password</Link> 
 											</div>
-											<div className="dz-social clearfix">
+											{/* <div className="dz-social clearfix">
 												<h5 className="form-title m-t5 pull-left">Sign In With</h5>
 												<ul className="dez-social-icon dez-border pull-right dez-social-icon-lg text-white">
 													<li><Link to={''} className="fa fa-facebook  fb-btn mr-1"  target="bank"></Link></li>
@@ -91,7 +91,7 @@ function Register2(props) {
 													<li><Link to={''} className="fa fa-linkedin link-btn mr-1" target="bank"></Link></li>
 													<li><Link to={''} className="fa fa-google-plus  gplus-btn" target="bank"></Link></li>
 												</ul>
-											</div>
+											</div> */}
 										</form>
 										<div className="text-center bottom"> 
 											<Link to="/login" className="site-button button-md btn-block text-white">Sign In</Link> 

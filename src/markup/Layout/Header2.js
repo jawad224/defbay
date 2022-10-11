@@ -73,7 +73,22 @@ class Header2 extends Component{
 							
 							<div className="header-nav navbar-collapse collapse myNavbar justify-content-start" id="navbarNavDropdown">
 								<ul className="nav navbar-nav">
-									<li className="active">
+								<li className="active"> 
+											<Link to={'/'} >Home</Link>
+										</li>
+										<li className=""> 
+											<Link to={'/about-us'} >About Us</Link>
+										</li>
+										<li className=""> 
+											<Link to={'/jobs-profile'} >Profile</Link>
+										</li>
+										<li className=""> 
+											<Link to={'/contact'} >Contact</Link>
+										</li>
+										<li className=""> 
+											<Link to={'/blog-left-img'} >Blog</Link>
+										</li>
+									{/* <li className="active">
 										<Link to={"#"}>Home <i className="fa fa-chevron-down"></i></Link>
 										<ul className="sub-menu">
 											<li><Link to={"/"} className="dez-page">Home 1</Link></li>
@@ -160,7 +175,7 @@ class Header2 extends Component{
 											<li><Link to={"/blog-left-img"} className="dez-page">Left Image Sidebar</Link></li>
 											<li><Link to={"/blog-details"} className="dez-page">Blog Details</Link></li>
 										</ul>
-									</li>
+									</li> */}
 								</ul>			
 							</div>
 						</div>
