@@ -86,6 +86,12 @@ class Header2 extends Component{
 											<Link to={'/contact'} >Contact</Link>
 										</li>
 										<li className=""> 
+											<Link to={'/'} >FAQ</Link>
+										</li>
+										<li className=""> 
+											<Link to={'/'} >Services</Link>
+										</li>
+										<li className=""> 
 											<Link to={'/blog-left-img'} >Blog</Link>
 										</li>
 									{/* <li className="active">
