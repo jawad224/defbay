@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { loadingToggleAction,loginAction,
+import {
+	loadingToggleAction, loginAction,
 } from '../../store/actions/AuthActions';
 
 // image
@@ -9,39 +10,39 @@ import { loadingToggleAction,loginAction,
 import loginbg from "./../../images/bg6.jpg";
 import logo2 from './../../images/logo-white2.png';
 
-function Login (props) {
-  const [email, setEmail] = useState('demo@example.com');
-    let errorsObj = { email: '', password: '' };
-    const [errors, setErrors] = useState(errorsObj);
-    const [password, setPassword] = useState('123456');
+function Login(props) {
+	const [email, setEmail] = useState('demo@example.com');
+	let errorsObj = { email: '', password: '' };
+	const [errors, setErrors] = useState(errorsObj);
+	const [password, setPassword] = useState('123456');
 
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-    function onLogin(e) {
-        e.preventDefault();
-        let error = false;
-        const errorObj = { ...errorsObj };
-        if (email === '') {
-            errorObj.email = 'Email is Required';
-            error = true;
-        }
-        if (password === '') {
-            errorObj.password = 'Password is Required';
-            error = true;
-        }
-        setErrors(errorObj);
-        if (error) {
-			return ;
+	function onLogin(e) {
+		e.preventDefault();
+		let error = false;
+		const errorObj = { ...errorsObj };
+		if (email === '') {
+			errorObj.email = 'Email is Required';
+			error = true;
 		}
-		dispatch(loadingToggleAction(true));	
-        dispatch(loginAction(email, password, props.history));
-    }
+		if (password === '') {
+			errorObj.password = 'Password is Required';
+			error = true;
+		}
+		setErrors(errorObj);
+		if (error) {
+			return;
+		}
+		dispatch(loadingToggleAction(true));
+		dispatch(loginAction(email, password, props.history));
+	}
 
-  return (
-	
-		
+	return (
+
+
 		<div className="page-wraper">
-			<div className="page-content bg-white login-style2" style={{backgroundImage:"url("+ loginbg +")", backgroundSize:"cover"}}>
+			<div className="page-content bg-white login-style2" style={{ backgroundImage: "url(" + loginbg + ")", backgroundSize: "cover" }}>
 				<div className="section-full">
 					<div className="container">
 						<div className="row">
@@ -79,8 +80,8 @@ function Login (props) {
 											<div className="form-group ">
 												<label>E-Mail Address*</label>
 												<div className="input-group">
-													<input type="email" className="form-control" 
-														placeholder="Type Your Email Address"  
+													<input type="email" className="form-control"
+														placeholder="Type Your Email Address"
 														value={email}
 														onChange={(e) => setEmail(e.target.value)}
 													/>
@@ -102,10 +103,16 @@ function Login (props) {
 													{errors.password && <div className="text-danger fs-12">{errors.password}</div>}
 												</div>
 											</div>
-											<div className="text-center">
-												<button className="site-button float-left">login</button>
-												{/* <Link  to="register-2" className="site-button-link forget-pass m-t15 float-right"><i className="fa fa-unlock-alt"></i> Sign up</Link>  */}
-												<button className="site-button float-right"><i className="fa fa-unlock-alt"></i> Sign up</button>
+											<div className='row text-center'>
+												<div className="text-center col-md-12">
+													<button className="site-button" style={{ width: '100%' }}><i className="fa fa-unlock-alt"></i> login</button>
+												</div>
+												<div className="text-center col-md-12 mt-1">
+													<Link to="/recruiter-register" className="site-button" style={{ width: '100%' }}><i className="fa fa-unlock-alt"></i> Sign up as Recruiter</Link>
+												</div>
+												<div className="text-center col-md-12 mt-1">
+													<Link to="/applicant-register" className="site-button" style={{ width: '100%' }}><i className="fa fa-unlock-alt"></i> Sign up as Applicant</Link>
+												</div>
 											</div>
 										</form>
 									</div>
@@ -113,14 +120,14 @@ function Login (props) {
 							</div>
 						</div>
 					</div>
-					
+
 				</div>
 				<footer className="login-footer">
 					<div className="container">
 						<div className="row">
 							<div className="col-lg-12 text-center">
 								<span className="float-left">© Copyright by <i className="fa fa-heart m-lr5 text-red heart"></i>
-								<a href="//hnhtechsolutions.com/" target='blank'>HnH Tech Solutions </a> </span>
+									<a href="//hnhtechsolutions.com/" target='blank'>HnH Tech Solutions </a> </span>
 								<span className="float-right">
 									All rights reserved.
 								</span>
@@ -134,10 +141,10 @@ function Login (props) {
 };
 
 const mapStateToProps = (state) => {
-    return {
-        errorMessage: state.auth.errorMessage,
-        successMessage: state.auth.successMessage,
-        showLoading: state.auth.showLoading,
-    };
+	return {
+		errorMessage: state.auth.errorMessage,
+		successMessage: state.auth.successMessage,
+		showLoading: state.auth.showLoading,
+	};
 };
 export default connect(mapStateToProps)(Login);

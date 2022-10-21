@@ -2,17 +2,71 @@ import React from 'react';
 import Header from '../Layout/Header';
 import Footer from '../Layout/Footer';
 import PageTitle from '../Layout/PageTitle';
+import Baseurl from '../BaseURL/Baseurl';
+import { useState } from 'react';
+import moment from 'moment';
+import swal from 'sweetalert';
 
 
 var bnr = require('./../../images/banner/bnr2.jpg');
 
 function ApplicantRegister() {
+
+	const [fname, setFname] = useState('')
+	const [lname, setLname] = useState('')
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+	const [address, setAddress] = useState('')
+	const [contact, setContact] = useState('')
+	const [birthday, setBirthday] = useState('')
+	const [gender, setGender] = useState('')
+	const [category, setCategory] = useState('')
+
+	const ApplicantSignup = () => {
+		var formdata = new FormData();
+		formdata.append("fname", fname);
+		formdata.append("lname", lname);
+		formdata.append("email", email);
+		formdata.append("password", password);
+		formdata.append("address", address);
+		formdata.append("contact", contact);
+		formdata.append("birthday", birthday);
+		formdata.append("gender", gender);
+		formdata.append("category", category);
+
+		var requestOptions = {
+			method: 'POST',
+			body: formdata,
+			redirect: 'follow'
+		};
+
+		fetch(`${Baseurl.baseurl}/applicant/registration`, requestOptions)
+			.then(response => response.json())
+			.then(result => {
+				if (result.status === true) {
+					swal('', result.message, "success");
+					console.log(result)
+				}
+				else {
+
+					swal('', result.message, "error");
+
+				}
+			}
+			)
+			.catch(error => console.log('error', error));
+	}
+	const onChangeDate = ({ target }) => {
+		const newDate = moment(target.value).format('YYYY-MM-DD');
+		setBirthday(newDate);
+		console.log(newDate); //always log "1970-01-01"
+	};
 	return (
 		<>
 			<Header />
 			<div className="page-content">
 				<div className="dez-bnr-inr overlay-black-middle bg-pt" style={{ backgroundImage: `url(${bnr})` }}>
-					<PageTitle motherName="Home" activeName="Register" />
+					<PageTitle motherName="Home" activeName="Applicant Register" />
 				</div>
 				<div className="section-full content-inner browse-job shop-account">
 					<div className="container">
@@ -20,57 +74,55 @@ function ApplicantRegister() {
 							<div className="col-md-12 m-b30">
 								<div className="p-a30 job-bx max-w500 radius-sm bg-white m-auto">
 									<div className="tab-content">
-										<form id="login" className="tab-pane active">
-											<h4 className="font-weight-700 m-b5">PERSONAL INFORMATION</h4>
-											<p className="font-weight-600">If you have an account with us, please log in.</p>
-											<div className="form-group">
-												<label className="font-weight-700">First Name *</label>
-												<input name="dzName" required="" className="form-control" placeholder="First Name" type="text" />
-											</div>
-											<div className="form-group">
-												<label className="font-weight-700">Last Name *</label>
-												<input name="dzName" required="" className="form-control" placeholder="Last Name" type="text" />
-											</div>
-											<div className="form-group">
-												<label className="font-weight-700">E-MAIL *</label>
-												<input name="dzName" required="" className="form-control" placeholder="Your Email Address" type="email" />
-											</div>
-											<div className="form-group">
-												<label className="font-weight-700">Password *</label>
-												<input name="dzName" required="" className="form-control " placeholder="Type Password" type="password" />
-											</div>
-											<div className="form-group">
-												<label className="font-weight-700">Address *</label>
-												<input name="dzAddress" required="" className="form-control" placeholder="Address" type="text" />
-											</div>
-											<div className="form-group">
-												<label className="font-weight-700">Phone # *</label>
-												<input name="dzContact" required="" className="form-control" placeholder="Phone #" type="tel" />
-											</div>
-											<div className="form-group">
-												<label className="font-weight-700">Date oF Birth *</label>
-												<input name="dzDOB" required="" className="form-control" placeholder="Date oF Birth" type="date" />
-											</div>
-											<div className="form-group">
-												<label className="font-weight-700">Genger *</label>
-												<select id="gender" name="dzGender" required="" className="form-control">
-													<option value="">Select Gender</option>
-													<option value="male">Male</option>
-													<option value="female">Female</option>
-												</select>
-											</div>
-											<div className="form-group">
-												<label className="font-weight-700">Category *</label>
-												<select id="category" name="dzCategory" required="" className="form-control">
-													<option value="">Select Category</option>
-													<option value="">UI/UX</option>
-													<option value="">Python</option>
-												</select>
-											</div>
-											<div className="text-left">
-												<button className="site-button button-lg outline outline-2">CREATE</button>
-											</div>
-										</form>
+										<h4 className="font-weight-700 m-b5">PERSONAL INFORMATION</h4>
+										<p className="font-weight-600">If you have an account with us, please log in.</p>
+										<div className="form-group">
+											<label className="font-weight-700">First Name *</label>
+											<input name="fname" required="" className="form-control" placeholder="First Name" onChange={(e) => setFname(e.target.value)} type="text" />
+										</div>
+										<div className="form-group">
+											<label className="font-weight-700">Last Name *</label>
+											<input name="lname" required="" className="form-control" placeholder="Last Name" onChange={(e) => setLname(e.target.value)} type="text" />
+										</div>
+										<div className="form-group">
+											<label className="font-weight-700">E-MAIL *</label>
+											<input name="email" required="" className="form-control" placeholder="Your Email Address" onChange={(e) => setEmail(e.target.value)} type="email" />
+										</div>
+										<div className="form-group">
+											<label className="font-weight-700">Password *</label>
+											<input name="password" required="" className="form-control " placeholder="Type Password" onChange={(e) => setPassword(e.target.value)} type="password" />
+										</div>
+										<div className="form-group">
+											<label className="font-weight-700">Address *</label>
+											<input name="address" required="" className="form-control" placeholder="Address" onChange={(e) => setAddress(e.target.value)} type="text" />
+										</div>
+										<div className="form-group">
+											<label className="font-weight-700">Phone # *</label>
+											<input name="contact" required="" className="form-control" placeholder="Phone #" onChange={(e) => setContact(e.target.value)} type="tel" />
+										</div>
+										<div className="form-group">
+											<label className="font-weight-700">Date oF Birth *</label>
+											<input name="birthday" required="" className="form-control" onChange={(e) => onChangeDate(e)} placeholder="Date oF Birth" type="date" />
+										</div>
+										<div className="form-group">
+											<label className="font-weight-700">Genger *</label>
+											<select id="gender" name="gender" required="" className="form-control" onChange={(e) => setGender(e.target.value)} >
+												<option value="">Select Gender</option>
+												<option value="male">Male</option>
+												<option value="female">Female</option>
+											</select>
+										</div>
+										<div className="form-group">
+											<label className="font-weight-700">Category *</label>
+											<select id="category" name="category" required="" className="form-control" onChange={(e) => setCategory(e.target.value)} >
+												<option value="">Select Category</option>
+												<option value="ui/ux">UI/UX</option>
+												<option value="python">Python</option>
+											</select>
+										</div>
+										<div className="text-left">
+											<button className="site-button button-lg outline outline-2" onClick={ApplicantSignup}>CREATE</button>
+										</div>
 									</div>
 								</div>
 							</div>
