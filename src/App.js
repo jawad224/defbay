@@ -13,7 +13,7 @@ import './plugins/slick/slick-theme.min.css';
 
 
 import Login from './markup/Pages/Loginpage2';
-import SignUp from './markup/Pages/Register2';
+import SignUp from './markup/Pages/RecruiterRegister';
 
 //const SignUp = lazy(() => import('./markup/Pages/Register2'));
 //const ForgotPassword = lazy(() => import('./markup/pages/ForgotPassword'));
@@ -33,7 +33,7 @@ function App (props) {
     let routes = (  
         <Switch>
             <Route path='/login' component={Login} />
-            <Route path='/register-2' component={SignUp} />
+            <Route path='/Recruiter-register' component={SignUp} />
         </Switch>
     );
     if (props.isAuthenticated) {
