@@ -1,5 +1,5 @@
-import React from 'react';
-import Header from '../Layout/Header';
+import React, { useEffect } from 'react';
+import Header from '../Layout/Header2';
 import Footer from '../Layout/Footer';
 import PageTitle from '../Layout/PageTitle';
 import Baseurl from '../BaseURL/Baseurl';
@@ -21,7 +21,8 @@ function ApplicantRegister() {
 	const [birthday, setBirthday] = useState('')
 	const [gender, setGender] = useState('')
 	const [category, setCategory] = useState('')
-
+	const [categoryarray, setCategoryArray] = useState([])
+	console.log("categoryarray", categoryarray)
 	const ApplicantSignup = () => {
 		var formdata = new FormData();
 		formdata.append("fname", fname);
@@ -43,6 +44,7 @@ function ApplicantRegister() {
 		fetch(`${Baseurl.baseurl}/applicant/registration`, requestOptions)
 			.then(response => response.json())
 			.then(result => {
+				console.log("all data==>", result)
 				if (result.status === true) {
 					swal('', result.message, "success");
 					console.log(result)
@@ -61,6 +63,40 @@ function ApplicantRegister() {
 		setBirthday(newDate);
 		console.log(newDate); //always log "1970-01-01"
 	};
+
+	useEffect(() => {
+		GetCatagory()
+	}, [])
+	const GetCatagory = () => {
+		var myHeaders = new Headers();
+		myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ImQ5N2QzYjI3LTAxNTQtNGVmZi1hNTE4LTkyMzc0NmU3NjBmMyIsImVtYWlsIjoiaG5odGVjaEBnbWFpbC5jb20iLCJleHAiOjE2NjY0NTE2MjYsImlhdCI6MTY2NjM2NTIyNn0.aOE6uLHNPDq-wUKFSWHgZq4qfHdUdNMz6UnEkrhot40");
+
+		var requestOptions = {
+			method: 'GET',
+			headers: myHeaders,
+			redirect: 'follow'
+		};
+
+		fetch(`${Baseurl.baseurl}/Admin/categoryData`, requestOptions)
+			.then(response => response.json())
+			.then(result => {
+				if (result.status === true) {
+
+					setCategoryArray(result.data)
+
+				}
+				// else{
+
+				// }
+
+			}
+
+
+			)
+
+			.catch(error => console.log('error', error));
+
+	}
 	return (
 		<>
 			<Header />
@@ -116,8 +152,18 @@ function ApplicantRegister() {
 											<label className="font-weight-700">Category *</label>
 											<select id="category" name="category" required="" className="form-control" onChange={(e) => setCategory(e.target.value)} >
 												<option value="">Select Category</option>
-												<option value="ui/ux">UI/UX</option>
-												<option value="python">Python</option>
+												{
+													categoryarray.map((option, index) => {
+														return (
+															<>
+																<option key={index} value={option.id}>
+																	{option.name}
+																</option>
+
+															</>
+														)
+													})
+												}
 											</select>
 										</div>
 										<div className="text-left">

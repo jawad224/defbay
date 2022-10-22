@@ -65,7 +65,7 @@ class Header2 extends Component{
 							
 							<div className="extra-nav">
 								<div className="extra-cell">
-									<Link to={"/applicant-register"} className="site-button"><i className="fa fa-user"></i> Sign Up</Link>
+									{/* <Link to={"/applicant-register"} className="site-button"><i className="fa fa-user"></i> Sign Up</Link> */}
 										{/* <Link to={'#'} title="READ MORE" onClick={this.handleShow} className="site-button"><i className="fa fa-lock"></i> login </Link> */}
 										<Logout />
 								</div>
