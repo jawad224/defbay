@@ -26,6 +26,7 @@ import ApplicantSignUp from './markup/Pages/ApplicantRegister';
 
 
 function App (props) {
+    console.log(props)
     const dispatch = useDispatch();
     useEffect(() => {
         checkAutoLogin(dispatch, props.history);

@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import {store} from './store/store';
 import reportWebVitals from "./reportWebVitals";
 import SimpleReactLightbox from "simple-react-lightbox";
+import 'react-overlay-loader/styles.css';
 
 //ReactDOM.render(<App />, document.getElementById('root'));
 

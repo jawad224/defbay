@@ -7,6 +7,7 @@ import {
 } from '../../services/AuthService';
 
 
+
 export const SIGNUP_CONFIRMED_ACTION = '[signup action] confirmed signup';
 export const SIGNUP_FAILED_ACTION = '[signup action] failed signup';
 export const LOGIN_CONFIRMED_ACTION = '[login action] confirmed login';
@@ -15,6 +16,7 @@ export const LOADING_TOGGLE_ACTION = '[Loading action] toggle loading';
 export const LOGOUT_ACTION = '[Logout action] logout action';
 
 export function signupAction(email, password, history) {
+    
     return (dispatch) => {
         signUp(email, password)
         .then((response) => {
@@ -25,6 +27,7 @@ export function signupAction(email, password, history) {
                 history,
             );
             dispatch(confirmedSignupAction(response.data));
+            console.log("response ==>",response.data)
             history.push('/home');
         })
         .catch((error) => {
@@ -46,17 +49,38 @@ export function loginAction(email, password, history) {
     return (dispatch) => {
         login(email, password)
             .then((response) => {
-                saveTokenInLocalStorage(response.data);
-                runLogoutTimer(
-                    dispatch,
-                    response.data.expiresIn * 1000,
-                    history,
-                );
-                dispatch(loginConfirmedAction(response.data));
-				history.push('/home');                
+                console.log("ahmed==>",response?.data)
+                if(response?.data?.data?.role == "applicant")
+                {
+
+                    saveTokenInLocalStorage(response?.data?.token);
+                // runLogoutTimer(
+                //     dispatch,
+                //     response.data.expiresIn * 1000,
+                //     history,
+                // );
+                dispatch(loginConfirmedAction({...response?.data?.data,token:response?.data?.token}));
+                
+				history.push('/HomeApplicant');     
+
+                }
+                if(response?.data?.data?.role == "recruiter")
+                {
+                    saveTokenInLocalStorage(response?.data?.token);
+                // runLogoutTimer(
+                //     dispatch,
+                //     response.data.expiresIn * 1000,
+                //     history,
+                // );
+                dispatch(loginConfirmedAction({...response?.data?.data,token:response?.data?.token}));
+				history.push('/HomeRecruiter');     
+
+                }
+                
+                           
             })
             .catch((error) => {
-				//console.log(error);
+				console.log(error);
                 const errorMessage = formatError(error.response.data);
                 dispatch(loginFailedAction(errorMessage));
             });
@@ -92,6 +116,7 @@ export function signupFailedAction(message) {
 }
 
 export function loadingToggleAction(status) {
+    
     return {
         type: LOADING_TOGGLE_ACTION,
         payload: status,

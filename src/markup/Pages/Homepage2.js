@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Header from './../Layout/Header';
+import Header2 from './../Layout/Header2';
 import Footer from './../Layout/Footer';
 import Jobcategories from './../Element/Jobcategories';
 import Jobsection from './../Element/Jobsection';
@@ -14,7 +14,7 @@ var bnr3 = require('./../../images/background/bg3.jpg');
 function Homepage2(){
 	return(
 		<>
-			<Header />	
+			<Header2 />	
 			<div className="page-content">
 				<div className="dez-bnr-inr dez-bnr-inr-md overlay-black-dark" style={{backgroundImage:"url(" + bnr1 + ")"}}>
 					<div className="container">

@@ -7,7 +7,7 @@ import Jobcategories from './../Element/Jobcategories';
 import Jobsection from './../Element/Jobsection';
 import Owltestimonial from './../Element/Owlblog1';
 import Footer from './../Layout/Footer';
-import Header2 from '../Layout/Header2';
+import Header from '../Layout/Header';
 
 //Images
 var bnr2 = require('./../../images/background/bg4.jpg');
@@ -16,7 +16,7 @@ var bnr3 = require('./../../images/lines.png');
 function Homepage(){
 	return(
 		<div className="page-wraper">
-			<Header2 />
+			<Header />
 			<div className="page-content">
 				<IndexBanner />
 				<div className="section-full job-categories content-inner-2 bg-white">

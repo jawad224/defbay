@@ -1,8 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Homepage from './Pages/Homepage1';
-import Homepage2 from './Pages/Homepage2';
+// import Homepage from './Pages/Homepage1';
+// import Homepage2 from './Pages/Homepage2';
+
+import HomepageApplicant from './Pages/Homepage1';
+import HomepageRecruiter from './Pages/Homepage2';
 
 import Jobprofile from './Pages/Jobprofile';
 import Jobmyresume from './Pages/Jobmyresume';
@@ -21,6 +24,7 @@ import Browsecandidates from './Pages/Browsecandidates';
 
 
 import Aboutus from './Pages/Aboutus';
+import Aboutus2 from './Pages/Aboutus2';
 import Jobdetail from './Pages/Jobdetail';
 import Companies from './Pages/Companies';
 import Freejobalerts from './Pages/Freejobalerts';
@@ -38,6 +42,9 @@ import Categoryskilljobs from './Pages/Categoryskilljobs';
 
 import Portfoliogrid2 from './Pages/Portfoliogrid2';
 
+// import HomepageApplicant from './Pages/Applicant/Homepage1';
+// import HomepageRecruiter from './Pages/Recruiter/Homepage1';
+
 //import Loginpage1 from './Pages/Loginpage1';
 //import Loginpage2 from './Pages/Loginpage2';
 //import Loginpage3 from './Pages/Loginpage3';
@@ -47,13 +54,17 @@ import RecruiterRegister from './Pages/RecruiterRegister';
 import Error404 from './Pages/Error404';
 
 import Contact from './Pages/Contact';
+import Contact2 from './Pages/Contact2';
 
 
 import Blogclassic from './Pages/Blogclassic';
 import Blogclassicsidebar from './Pages/Blogclassicsidebar';
 import Blogdetailgrid from './Pages/Blogdetailgrid';
 import Blogdetailgridsidebar from './Pages/Blogdetailgridsidebar';
+
 import Blogleftimg from './Pages/Blogleftimg';
+import Blogleftimg2 from './Pages/Blogleftimg2';
+
 import Blogdetail from './Pages/Blogdetail';
 import ScrollToTop from './Element/ScrollToTop';
 
@@ -62,9 +73,13 @@ const Markup= () => {
 		<>
 			<div className="page-wraper">
 				<Switch>
-					<Route path='/' exact component={Homepage} />
-						 <Route path='/home' exact component={Homepage} />
-					<Route path='/index-2' exact component={Homepage2} />
+					<Route path='/HomeApplicant' exact component={HomepageApplicant} />
+					<Route path='/HomeRecruiter' exact component={HomepageRecruiter} />
+				    {/* <Route path='/Ahome' exact component={Homepage} /> */}
+                         {/* applicant routes */}
+					
+					{/* <Route path='/ApplicantHome' exact component={HomepageApplicant} />
+					<Route path='/RecruiterHome' exact component={HomepageRecruiter} /> */}
 					
 					<Route path='/jobs-profile' exact component={Jobprofile} />
 					<Route path='/jobs-my-resume' exact component={Jobmyresume} />
@@ -84,6 +99,8 @@ const Markup= () => {
 					
 					
 					<Route path='/about-us' exact component={Aboutus} />
+					<Route path='/about-us2' exact component={Aboutus2} />
+
 					<Route path='/job-detail' exact component={Jobdetail} />
 					<Route path='/companies' exact component={Companies} />
 					<Route path='/free-job-alerts' exact component={Freejobalerts} />
@@ -110,12 +127,16 @@ const Markup= () => {
 					<Route path='/error-404' exact component={Error404} />
 					
 					<Route path='/contact' exact component={Contact} />
+					<Route path='/contact2' exact component={Contact2} />
 					
 					<Route path='/blog-classic' exact component={Blogclassic} />
 					<Route path='/blog-classic-sidebar' exact component={Blogclassicsidebar} />
 					<Route path='/blog-detailed-grid' exact component={Blogdetailgrid} />
 					<Route path='/blog-detailed-grid-sidebar' exact component={Blogdetailgridsidebar} />
+
 					<Route path='/blog-left-img' exact component={Blogleftimg} />
+					<Route path='/blog-left-img2' exact component={Blogleftimg2} />
+
 					<Route path='/blog-details' exact component={Blogdetail} /> 
 					
 				</Switch>

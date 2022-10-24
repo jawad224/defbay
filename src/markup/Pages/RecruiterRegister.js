@@ -1,16 +1,21 @@
 import React from 'react';
-import Header from '../Layout/Header';
+import Header2 from '../Layout/Header2';
 import Footer from '../Layout/Footer';
 import PageTitle from '../Layout/PageTitle';
 import Baseurl from '../BaseURL/Baseurl';
 import { useState } from 'react';
 import swal from 'sweetalert';
 import moment from 'moment';
+import {Loader} from 'react-overlay-loader'
+import { useHistory } from "react-router-dom";
+// import { notification } from 'antd';
+// import { SmileOutlined } from '@ant-design/icons';
 
 var bnr = require('./../../images/banner/bnr2.jpg');
-
+ 
 function RecruiterRegister() {
 
+	const history = useHistory();
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
 	const [email, setEmail] = useState('')
@@ -19,6 +24,11 @@ function RecruiterRegister() {
 	const [contact, setContact] = useState('')
 	const [birthday, setBirthday] = useState('')
 	const [gender, setGender] = useState('')
+	const[loader,setLoader] =useState(false)
+
+
+
+	const key="update"
 
 	const RecruiterSignup = () => {
 		var formdata = new FormData();
@@ -36,22 +46,34 @@ function RecruiterRegister() {
 			body: formdata,
 			redirect: 'follow'
 		};
+		setLoader(true)
 
 		fetch(`${Baseurl.baseurl}/recruiter/registration`, requestOptions)
 			.then(response => response.json())
 			.then(result => {
 				if (result.status === true) {
+					setLoader(false)
 					swal('', result.message, "success");
+					
+					history.push('/login')  
 					console.log(result)
 				}
 				else {
 
 					swal('', result.message, "error");
+					setLoader(false)
 
 				}
 			}
 			)
-			.catch(error => console.log('error', error));
+			.catch(error =>
+				{
+					setLoader(false)
+					console.log('error', error)
+
+				}
+				 
+				 );
 
 	}
 	const onChangeDate = ({ target }) => {
@@ -62,7 +84,9 @@ function RecruiterRegister() {
 
 	return (
 		<>
-			<Header />
+			{/* <Header /> */}
+			{/* <Header2 /> */}
+			{loader ? <Loader fullPage loading /> : null}
 			<div className="page-content">
 				<div className="dez-bnr-inr overlay-black-middle bg-pt" style={{ backgroundImage: `url(${bnr})` }}>
 					<PageTitle motherName="Home" activeName="Recruiter Register" />

@@ -55,7 +55,7 @@ class Header extends Component{
 							<div className="container clearfix">
 								
 								<div className="logo-header mostion">
-									<Link to={"/"}><img src={logo2} className="logo" alt="img" /></Link>
+									<Link to={"/HomeApplicant"}><img src={logo2} className="logo" alt="img" /></Link>
 								</div>
 								
 								 <button className="navbar-toggler collapsed navicon  justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,11 +74,11 @@ class Header extends Component{
 								 
 								<div className="header-nav navbar-collapse collapse myNavbar justify-content-start" id="navbarNavDropdown"> 
 									<div className="logo-header mostion d-md-block d-lg-none">
-										<Link to={'/'} className="dez-page"><img src={logo2} alt="" /></Link>
+										<Link to={'/HomeApplicant'} className="dez-page"><img src={logo2} alt="" /></Link>
 									</div>
 									<ul className="nav navbar-nav">
 										<li className="active"> 
-											<Link to={'/'} >Home</Link>
+											<Link to={'/HomeApplicant'} >Home of Applicant</Link>
 										</li>
 										<li className=""> 
 											<Link to={'/about-us'} >About Us</Link>
@@ -89,12 +89,12 @@ class Header extends Component{
 										<li className=""> 
 											<Link to={'/contact'} >Contact</Link>
 										</li>
-										<li className=""> 
+										{/* <li className=""> 
 											<Link to={'/'} >FAQ</Link>
-										</li>
-										<li className=""> 
+										</li> */}
+										{/* <li className=""> 
 											<Link to={'/'} >Services</Link>
-										</li>
+										</li> */}
 										<li className=""> 
 											<Link to={'/blog-left-img'} >Blog</Link>
 										</li>

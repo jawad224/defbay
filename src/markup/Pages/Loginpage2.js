@@ -5,20 +5,28 @@ import {
 	loadingToggleAction, loginAction,
 } from '../../store/actions/AuthActions';
 
+// import { Loader } from 'react-overlay-loader';
+
 // image
 //import logo from "../../images/logo-full-white.png";
 import loginbg from "./../../images/bg6.jpg";
 import logo2 from './../../images/logo-white2.png';
 
 function Login(props) {
-	const [email, setEmail] = useState('demo@example.com');
+	// const [email, setEmail] = useState('demo@example.com');
 	let errorsObj = { email: '', password: '' };
 	const [errors, setErrors] = useState(errorsObj);
-	const [password, setPassword] = useState('123456');
+	// const [password, setPassword] = useState('123456');
+
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+
+	const [loader, setLoader] = useState(false)
 
 	const dispatch = useDispatch();
 
 	function onLogin(e) {
+		console.log("value of e ==>",e)
 		e.preventDefault();
 		let error = false;
 		const errorObj = { ...errorsObj };
@@ -38,7 +46,37 @@ function Login(props) {
 		dispatch(loginAction(email, password, props.history));
 	}
 
+	// const onLogin = () =>
+
+
+
+
+	// {
+
+	// 	var formdata = new FormData();
+	// 	formdata.append("email", email);
+	// 	formdata.append("password", password);
+
+	// 	var requestOptions = {
+	// 	  method: 'POST',
+	// 	  body: formdata,
+	// 	  redirect: 'follow'
+	// 	};
+
+	// 	fetch("https://linkdinn.pythonanywhere.com/Admin/login", requestOptions)
+	// 	  .then(response => response.json())
+	// 	  .then(result => 
+
+	// 		console.log(result)
+
+	// 		)
+	// 	  .catch(error => console.log('error', error));		
+
+
+	// }
+
 	return (
+		
 
 
 		<div className="page-wraper">
@@ -85,8 +123,9 @@ function Login(props) {
 														value={email}
 														onChange={(e) => setEmail(e.target.value)}
 													/>
-													{errors.email && <div className="text-danger fs-12">{errors.email}</div>}
 												</div>
+												<br />
+												{errors.email && <div className="text-danger fs-12">{errors.email}</div>}
 											</div>
 											<div className="form-group">
 												<label>Password *</label>
@@ -100,8 +139,9 @@ function Login(props) {
 															setPassword(e.target.value)
 														}
 													/>
-													{errors.password && <div className="text-danger fs-12">{errors.password}</div>}
 												</div>
+												<br />
+												{errors.password && <div className="text-danger fs-12">{errors.password}</div>}
 											</div>
 											<div className='row text-center'>
 												<div className="text-center col-md-12">

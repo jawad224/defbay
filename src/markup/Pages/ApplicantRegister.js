@@ -1,16 +1,24 @@
 import React, { useEffect } from 'react';
-import Header from '../Layout/Header2';
+import Header from '../Layout/Header';
 import Footer from '../Layout/Footer';
 import PageTitle from '../Layout/PageTitle';
 import Baseurl from '../BaseURL/Baseurl';
 import { useState } from 'react';
 import moment from 'moment';
 import swal from 'sweetalert';
+import { Loader } from 'react-overlay-loader';
 
+
+
+// import { useNavigate } from  "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 var bnr = require('./../../images/banner/bnr2.jpg');
 
 function ApplicantRegister() {
+
+	// const navigate = useNavigate();
+	const history = useHistory();
 
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
@@ -23,6 +31,11 @@ function ApplicantRegister() {
 	const [category, setCategory] = useState('')
 	const [categoryarray, setCategoryArray] = useState([])
 	console.log("categoryarray", categoryarray)
+
+ 
+	const [loader,setLoader]=useState(false)
+
+
 	const ApplicantSignup = () => {
 		var formdata = new FormData();
 		formdata.append("fname", fname);
@@ -41,22 +54,33 @@ function ApplicantRegister() {
 			redirect: 'follow'
 		};
 
+		setLoader(true)
+
 		fetch(`${Baseurl.baseurl}/applicant/registration`, requestOptions)
 			.then(response => response.json())
 			.then(result => {
 				console.log("all data==>", result)
 				if (result.status === true) {
+					setLoader(false)
 					swal('', result.message, "success");
 					console.log(result)
+					history.push('/login')
 				}
 				else {
+					setLoader(false)
 
 					swal('', result.message, "error");
 
 				}
 			}
 			)
-			.catch(error => console.log('error', error));
+			.catch(error => 
+				{
+					setLoader(false)
+
+					console.log('error', error)
+				}
+				);
 	}
 	const onChangeDate = ({ target }) => {
 		const newDate = moment(target.value).format('YYYY-MM-DD');
@@ -69,20 +93,22 @@ function ApplicantRegister() {
 	}, [])
 	const GetCatagory = () => {
 		var myHeaders = new Headers();
-		myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ImQ5N2QzYjI3LTAxNTQtNGVmZi1hNTE4LTkyMzc0NmU3NjBmMyIsImVtYWlsIjoiaG5odGVjaEBnbWFpbC5jb20iLCJleHAiOjE2NjY0NTE2MjYsImlhdCI6MTY2NjM2NTIyNn0.aOE6uLHNPDq-wUKFSWHgZq4qfHdUdNMz6UnEkrhot40");
-
+		// myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ImQ5N2QzYjI3LTAxNTQtNGVmZi1hNTE4LTkyMzc0NmU3NjBmMyIsImVtYWlsIjoiaG5odGVjaEBnbWFpbC5jb20iLCJleHAiOjE2NjY0NTE2MjYsImlhdCI6MTY2NjM2NTIyNn0.aOE6uLHNPDq-wUKFSWHgZq4qfHdUdNMz6UnEkrhot40");
+		setLoader(true)
 		var requestOptions = {
 			method: 'GET',
-			headers: myHeaders,
+			// headers: myHeaders,
 			redirect: 'follow'
 		};
 
 		fetch(`${Baseurl.baseurl}/Admin/categoryData`, requestOptions)
 			.then(response => response.json())
 			.then(result => {
-				if (result.status === true) {
-
+				if (result.status == true) {
+                        setLoader(false)
 					setCategoryArray(result.data)
+
+					
 
 				}
 				// else{
@@ -94,12 +120,20 @@ function ApplicantRegister() {
 
 			)
 
-			.catch(error => console.log('error', error));
+			.catch(error =>
+				{
+					setLoader(false)
+				console.log('error', error)
+				}
+				);
 
 	}
 	return (
 		<>
-			<Header />
+		{loader ? <Loader fullPage loading /> : null}
+              
+
+			{/* <Header /> */}
 			<div className="page-content">
 				<div className="dez-bnr-inr overlay-black-middle bg-pt" style={{ backgroundImage: `url(${bnr})` }}>
 					<PageTitle motherName="Home" activeName="Applicant Register" />
