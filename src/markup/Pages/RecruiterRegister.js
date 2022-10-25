@@ -168,7 +168,7 @@ function RecruiterRegister() {
 			
 										})}
 										    placeholder="Type Password" type="password" />
-											<p style={{ color: "red" }}>{errors.email?.message}</p>
+											<p style={{ color: "red" }}>{errors.password?.message}</p>
 										</div>
 										<div className="form-group">
 											<label className="font-weight-700">Address *</label>
