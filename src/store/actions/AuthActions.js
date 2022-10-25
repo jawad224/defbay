@@ -50,13 +50,17 @@ export function loginAction(email, password, history) {
         login(email, password)
             .then((response) => {
                 console.log("ahmed==>",response?.data)
+                if(response?.data.status == true)
+                {
+                dispatch(loginConfirmedAction(response.data))
+                
                 if(response?.data?.data?.role == "applicant")
                 {
                    
                     saveTokenInLocalStorage(response?.data?.token);
                     // localStorage.setItem("AdminToken",response?.data?.token)
-                    localStorage.setItem('AdminToken', response?.data?.token);
-                    console.log("value of token==>",response?.data?.token)
+                    // localStorage.setItem('AdminToken', response?.data?.token);
+                    // console.log("value of token==>",response?.data?.token)
                 // runLogoutTimer(
                 //     dispatch,
                 //     response.data.expiresIn * 1000,
@@ -79,11 +83,16 @@ export function loginAction(email, password, history) {
 				history.push('/HomeRecruiter');     
 
                 }
+            }
+            else if(response?.data.status === false){
+                
+                dispatch(loginFailedAction(response.data.message));
+            }
                 
                            
             })
             .catch((error) => {
-				console.log(error);
+				console.log("my error",error);
                 const errorMessage = formatError(error.response.data);
                 dispatch(loginFailedAction(errorMessage));
             });
