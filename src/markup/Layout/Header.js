@@ -77,7 +77,7 @@ class Header extends Component{
 										<Link to={'/HomeApplicant'} className="dez-page"><img src={logo2} alt="" /></Link>
 									</div>
 									<ul className="nav navbar-nav">
-										<li className="active"> 
+										<li className=""> 
 											<Link to={'/HomeApplicant'} >Home of Applicant</Link>
 										</li>
 										<li className=""> 

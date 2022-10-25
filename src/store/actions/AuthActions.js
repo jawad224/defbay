@@ -52,8 +52,11 @@ export function loginAction(email, password, history) {
                 console.log("ahmed==>",response?.data)
                 if(response?.data?.data?.role == "applicant")
                 {
-
+                   
                     saveTokenInLocalStorage(response?.data?.token);
+                    // localStorage.setItem("AdminToken",response?.data?.token)
+                    localStorage.setItem('AdminToken', response?.data?.token);
+                    console.log("value of token==>",response?.data?.token)
                 // runLogoutTimer(
                 //     dispatch,
                 //     response.data.expiresIn * 1000,

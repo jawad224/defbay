@@ -12,6 +12,7 @@ function LogoutPage(props){
        dispatch(logout(props.history));
        // window.location.reload();
     }
+    
     return(
         <>
             			
