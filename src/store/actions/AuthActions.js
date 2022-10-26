@@ -128,6 +128,8 @@ export function signupFailedAction(message) {
 }
 
 export function loadingToggleAction(status) {
+
+    console.log("value of status of loader==>",status)
     
     return {
         type: LOADING_TOGGLE_ACTION,

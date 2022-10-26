@@ -11,6 +11,7 @@ import {
 //import logo from "../../images/logo-full-white.png";
 import loginbg from "./../../images/bg6.jpg";
 import logo2 from './../../images/logo-white2.png';
+import { Loader } from 'react-overlay-loader';
 
 function Login(props) {
 	// const [email, setEmail] = useState('demo@example.com');
@@ -76,12 +77,24 @@ function Login(props) {
 	// }
 
 	return (
-		
+		 
+		// {
+		// 	props.showLoading == true ? 
+		// }
 
+		// {props.showLoading && ( <Loader fullPage loading /> ) }
+		// {props.showLoading && (
+		// 	<div className='bg-green-300 text-green-900 border border-green-900 p-1 my-2'>
+		// 		{props.successMessage}
+		// 	</div>
+		// )}
+         
 
 		<div className="page-wraper">
+			
 			<div className="page-content bg-white login-style2" style={{ backgroundImage: "url(" + loginbg + ")", backgroundSize: "cover" }}>
 				<div className="section-full">
+				 {props.showLoading && ( <Loader fullPage loading /> )  }
 					<div className="container">
 						<div className="row">
 							<div className="col-lg-6 col-md-6 d-flex">
@@ -105,11 +118,11 @@ function Login(props) {
 									<div className="nav">
 										<form onSubmit={onLogin} className="col-12 p-a0 ">
 											<p className="font-weight-600 text-white">If you have an account with us, please log in.</p>
-											{props.errorMessage && (
+											{/* {props.errorMessage && (
 												<div className='bg-red-300 text-red border border-red-900 p-1 my-2'>
 													{props.errorMessage}
 												</div>
-											)}
+											)} */}
 											{props.successMessage && (
 												<div className='bg-green-300 text-green-900 border border-green-900 p-1 my-2'>
 													{props.successMessage}
@@ -142,7 +155,13 @@ function Login(props) {
 												</div>
 												<br />
 												{errors.password && <div className="text-danger fs-12">{errors.password}</div>}
+												{props.errorMessage && (
+												<div className='bg-red-300 text-red border border-red-900 p-1 my-2'>
+													{props.errorMessage}
+												</div>
+											)}
 											</div>
+											
 											<div className='row text-center'>
 												<div className="text-center col-md-12">
 													<button className="site-button" style={{ width: '100%' }}><i className="fa fa-unlock-alt"></i> login</button>
