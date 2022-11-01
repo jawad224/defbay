@@ -4,8 +4,33 @@ import Header2 from './../Layout/Header2';
 import Footer from './../Layout/Footer';
 import {Form} from 'react-bootstrap';
 import GoogleMaps from "simple-react-google-maps";
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../store/actions/AuthActions';
+import { isAuthenticated } from '../../store/selectors/AuthSelectors';
+import Logout from '../Layout/Logout';
+// import { useSelector, useDispatch } from 'react-redux';
 
-function Companyprofile(){
+function Companyprofile(props){
+
+	console.log("comany profile props==>",props)
+
+	
+
+	const dispatch =useDispatch()
+
+
+
+	const CompanyprofileReduxUseSelector = useSelector((state) => state)
+	console.log("CompanyprofileReduxUseSelector==>", CompanyprofileReduxUseSelector)
+    console.log("isAuthenticated==>", isAuthenticated)
+
+	const ahmed = () =>{
+
+		// localStorage.clearAll()
+		// localStorage.clear()
+		// dispatch(logout())
+	}
+
 	return(
 		<>
 			<Header2 />
@@ -50,9 +75,12 @@ function Companyprofile(){
 												<li><Link to={"/jobs-change-password"}>
 													<i className="fa fa-key" aria-hidden="true"></i> 
 													<span>Change Password</span></Link></li>
-												<li><Link to={"./"}>
+												<li>
+													{/* <Link to={"#"}>
 													<i className="fa fa-sign-out" aria-hidden="true"></i> 
-													<span>Log Out</span></Link></li>
+													<span   >Log Out</span></Link> */}
+													<Logout />
+													</li>
 											</ul>
 										</div>
 									</div>

@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 //import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
-import {Provider} from 'react-redux';
-import {store} from './store/store';
+import { Provider } from 'react-redux';
+// import { store } from './store/store';
+import {store, persist } from './store/store';
+import {PersistGate} from "redux-persist/integration/react"
 import reportWebVitals from "./reportWebVitals";
 import SimpleReactLightbox from "simple-react-lightbox";
 import 'react-overlay-loader/styles.css';
@@ -12,16 +14,36 @@ import 'react-overlay-loader/styles.css';
 //ReactDOM.render(<App />, document.getElementById('root'));
 
 ReactDOM.render(
-	<React.StrictMode>
-		<Provider store = {store}>
-            <SimpleReactLightbox>
-                <BrowserRouter basename='/'>
-                    <App />
-                </BrowserRouter>    
-            </SimpleReactLightbox>
-        </Provider>	
-	</React.StrictMode>,
-  document.getElementById("root")
+    // <React.StrictMode>
+    //     <Provider store={store}>
+    //         <SimpleReactLightbox>
+    //             <BrowserRouter basename='/'>
+    //                 <App />
+    //             </BrowserRouter>
+    //         </SimpleReactLightbox>
+    //     </Provider>
+    // </React.StrictMode>,
+
+    // new redux
+
+    <React.StrictMode>
+            <PersistGate loading={null} persistor={persist}>
+        <Provider store={store}>
+                <SimpleReactLightbox>
+                    <BrowserRouter basename='/'>
+                        <App />
+                    </BrowserRouter>
+                </SimpleReactLightbox>
+        </Provider>
+            </PersistGate>
+    </React.StrictMode>,
+
+    //   <Provider store={store}>
+    //   <PersistGate loading={null} persistor={persist}>
+    //      <App />
+    //   </PersistGate>
+    // </Provider>
+    document.getElementById("root")
 );
 reportWebVitals();
 

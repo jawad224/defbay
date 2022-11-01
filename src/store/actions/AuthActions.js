@@ -38,6 +38,7 @@ export function signupAction(email, password, history) {
 }
 
 export function logout(history) {
+    console.log("logout in redux==>",history)
     localStorage.removeItem('userDetails');
     history.push('/login');
     return {

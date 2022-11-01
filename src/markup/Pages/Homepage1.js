@@ -9,11 +9,17 @@ import Owltestimonial from './../Element/Owlblog1';
 import Footer from './../Layout/Footer';
 import Header from '../Layout/Header';
 
+
+
 //Images
 var bnr2 = require('./../../images/background/bg4.jpg');
 var bnr3 = require('./../../images/lines.png');
 
 function Homepage(){
+
+
+
+
 	return(
 		<div className="page-wraper">
 			<Header />

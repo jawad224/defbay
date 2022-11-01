@@ -12,6 +12,8 @@ var bnr2 = require('./../../images/background/bg4.jpg');
 var bnr3 = require('./../../images/background/bg3.jpg');
 
 function Homepage2(){
+
+
 	return(
 		<>
 			<Header2 />	

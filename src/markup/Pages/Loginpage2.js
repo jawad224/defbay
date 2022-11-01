@@ -12,8 +12,15 @@ import {
 import loginbg from "./../../images/bg6.jpg";
 import logo2 from './../../images/logo-white2.png';
 import { Loader } from 'react-overlay-loader';
+import { useSelector } from 'react-redux';
 
 function Login(props) {
+ 
+	const AuthTokenGeting = useSelector((state) => state.auth.auth.token)
+	console.log("Ahmed Redux Token ==> ", AuthTokenGeting)
+
+
+
 	// const [email, setEmail] = useState('demo@example.com');
 	let errorsObj = { email: '', password: '' };
 	const [errors, setErrors] = useState(errorsObj);

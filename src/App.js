@@ -30,9 +30,9 @@ function App (props) {
     console.log("my token ==>",token)
     console.log("my props==>",props)
     const dispatch = useDispatch();
-    useEffect(() => {
-        checkAutoLogin(dispatch, props.history);
-    }, [dispatch, props.history]);
+    // useEffect(() => {
+    //     checkAutoLogin(dispatch, props.history);
+    // }, [dispatch, props.history]);
     
     let routes = (  
         <Switch>

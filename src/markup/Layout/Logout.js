@@ -6,9 +6,12 @@ import { logout } from '../../store/actions/AuthActions';
 import { isAuthenticated } from '../../store/selectors/AuthSelectors';
 
 function LogoutPage(props){
+
+    console.log("props in logoutpage==>",props)
     const dispatch = useDispatch();
 
     function onLogout() {
+        console.log("props.history==>",props.history)
        dispatch(logout(props.history));
        // window.location.reload();
     }
@@ -23,6 +26,7 @@ function LogoutPage(props){
     )
 } 
 const mapStateToProps = (state) => {
+    console.log("mapStateToProps===>",state)
     return {
         isAuthenticated: isAuthenticated(state),
     };

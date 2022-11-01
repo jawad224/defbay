@@ -3,8 +3,11 @@ import {Link} from 'react-router-dom';
 import {Modal} from 'react-bootstrap';
 import Logout from './Logout';
 
+
 import logo2 from './../../images/logo.png';
 var bnr3 = require('./../../images/background/bg3.jpg');
+
+
 
 
 class Header extends Component{
@@ -48,6 +51,10 @@ class Header extends Component{
 	}	
 	render(){	
 		return(
+
+ 
+
+
 			<>
 				<header className="site-header mo-left header fullwidth">
 					<div className="sticky-header main-bar-wraper navbar-expand-lg">
