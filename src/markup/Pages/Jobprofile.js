@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 // import { ToastContainer, toast } from 'react-toastify';
 import BaseurlVariable from '../BaseURL/Baseurl';
 import { useState } from 'react';
+import Swal from "sweetalert2";
 
 import { useForm } from 'react-hook-form';
 import { Loader } from 'react-overlay-loader';
@@ -22,6 +23,7 @@ function Jobprofile() {
 	console.log("jobprofile localStorageToken ", localStorageToken)
 
 	// states for contact form
+	const[AllData,setAllData]=useState([])
 	const [fname, setfname] = useState('')
 	const [lname, setlname] = useState('')
 	const [email, setemail] = useState('')
@@ -123,6 +125,12 @@ function Jobprofile() {
 
 
 					BasicInformation()
+					Swal.fire({
+                        title: "success",
+                        text: result.message,
+                        icon: "success",
+                        confirmButtonColor: "#f7931e",
+                    });
 
 					// toast.success(response.data.message, {
 					// 	position: "top-right",
@@ -136,12 +144,26 @@ function Jobprofile() {
 					// });
 					console.log(result)
 				}
+				else{
+					setLoader(false)
+					Swal.fire({
+                        title: "Oops",
+                        text: result.message,
+                        icon: "error",
+                        confirmButtonColor: "#f7931e",
+                    });
+				}
 
 			}
 
 
 			)
-			.catch(error => console.log('error', error));
+			.catch(error => 
+				{
+					setLoader(false)
+				console.log('error', error)
+				}
+				);
 
 
 	}
@@ -167,6 +189,7 @@ function Jobprofile() {
 
 				console.log("result of get api", result.data.fname)
 				console.log("result of get api", result.data.email)
+				setAllData(result.data)
 				setfname(result.data.fname)
 				setlname(result.data.lname)
 				setemail(result.data.email)
@@ -209,6 +232,14 @@ function Jobprofile() {
 
 					ContactInformation()
 
+					Swal.fire({
+                        title: "success",
+                        text: result.message,
+                        icon: "success",
+                        confirmButtonColor: "#f7931e",
+                    });
+					
+
 					// toast.success(response.data.message, {
 					// 	position: "top-right",
 					// 	autoClose: 5000,
@@ -221,15 +252,31 @@ function Jobprofile() {
 					// });
 					console.log(result)
 				}
+				else{
+					setLoader(false)
+					Swal.fire({
+                        title: "Oops",
+                        text: result.message,
+                        icon: "error",
+                        confirmButtonColor: "#f7931e",
+                    });
+				}
 
 			}
 
 
 			)
-			.catch(error => console.log('error', error));
+			.catch(error => 
+				{
+					setLoader(false)
+				console.log('error', error)
+				}
+				);
 
 	}
 
+
+	console.log("AllData",AllData)
 
 
 
@@ -241,6 +288,7 @@ function Jobprofile() {
 			{loader == true ?
 				<Loader fullPage loading /> : null
 			}
+			
 			<Header />
 			{/* <ToastContainer /> */}
 			<div className="page-content bg-white">
@@ -248,12 +296,12 @@ function Jobprofile() {
 					<div className="section-full bg-white browse-job p-t50 p-b20">
 						<div className="container">
 							<div className="row">
-								<Profilesidebar />
+								<Profilesidebar data={AllData} />
 								<div className="col-xl-9 col-lg-8 m-b30">
 									<div className="job-bx job-profile">
 										<div className="job-bx-title clearfix">
 											<h5 className="font-weight-700 pull-left text-uppercase">Basic Information</h5>
-											<Link to={"./"} className="site-button right-arrow button-sm float-right">Back</Link>
+											<Link to={"HomeApplicant"} className="site-button right-arrow button-sm float-right">Back</Link>
 										</div>
 										{/*basic infor form  */}
 										{/* <form> */}
@@ -452,4 +500,6 @@ function Jobprofile() {
 		</>
 	)
 }
+
+
 export default Jobprofile;

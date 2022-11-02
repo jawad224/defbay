@@ -1,11 +1,17 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import Logout from '../Layout/Logout';
 
-function Profilesidebar() {
+import BaseurlVariable from '../BaseURL/Baseurl';
+
+function Profilesidebar(props) {
 
 	const history = useHistory()
 
+	const location = useLocation()
+
+
+	
 	// 	const ahmed = () =>{
 
 
@@ -17,6 +23,7 @@ function Profilesidebar() {
 	// )
 
 
+	console.log("hello",props.data)
 
 
 
@@ -32,7 +39,9 @@ return (
 				<div className="candidate-detail text-center">
 					<div className="canditate-des">
 						<Link to={''}>
-							<img alt="" src={require('./../../images/team/pic1.jpg')} />
+						
+							{/* <img alt="" src={require('./../../images/team/pic1.jpg')} /> */}
+							<img alt="" src={BaseurlVariable.imgUrl + props.data.profile} />
 						</Link>
 						<div className="upload-link" title="update" data-toggle="tooltip" data-placement="right">
 							<input type="file" className="update-flie" />
@@ -41,8 +50,8 @@ return (
 					</div>
 					<div className="candidate-title">
 						<div className="">
-							<h4 className="m-b5"><Link to={"#"}>David Matin</Link></h4>
-							<p className="m-b0"><Link to={"#"}>Web developer</Link></p>
+							<h4 className="m-b5"><Link to={"#"}>David Matin {props.data.fname}</Link></h4>
+							<p className="m-b0"><Link to={"#"}>Web developer </Link></p>
 						</div>
 					</div>
 				</div>
