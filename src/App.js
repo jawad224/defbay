@@ -1,7 +1,7 @@
-import React,{  Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import Index from './markup/Markup';
 import { connect, useDispatch } from 'react-redux';
-import {  Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { checkAutoLogin } from './services/AuthService';
 import { isAuthenticated } from './store/selectors/AuthSelectors';
 import './css/plugins.css';
@@ -13,8 +13,8 @@ import './plugins/slick/slick-theme.min.css';
 
 
 import Login from './markup/Pages/Loginpage2';
-import RecruiterSignUp from './markup/Pages/RecruiterRegister';
-import ApplicantSignUp from './markup/Pages/ApplicantRegister';
+// import RecruiterSignUp from './markup/Pages/RecruiterRegister';
+// import ApplicantSignUp from './markup/Pages/ApplicantRegister';
 
 //const SignUp = lazy(() => import('./markup/Pages/Register2'));
 //const ForgotPassword = lazy(() => import('./markup/pages/ForgotPassword'));
@@ -25,43 +25,27 @@ import ApplicantSignUp from './markup/Pages/ApplicantRegister';
 });  */
 
 
-function App (props) {
-    const token=localStorage.getItem('userDetails')
-    console.log("my token ==>",token)
-    console.log("my props==>",props)
+function App(props) {
+    const token = localStorage.getItem('userDetails')
+    console.log("my token ==>", token)
+    console.log("my props==>", props)
     const dispatch = useDispatch();
     // useEffect(() => {
     //     checkAutoLogin(dispatch, props.history);
     // }, [dispatch, props.history]);
-    
-    let routes = (  
+
+    let routes = (
         <Switch>
             <Route path='/login' component={Login} />
-            <Route path='/Recruiter-register' component={RecruiterSignUp} />
-            <Route path='/Applicant-register' component={ApplicantSignUp} />
+            <Route path='*' component={Login} />
+            {/* <Route path='/a' component={Login} /> */}
+            {/* <Route path='/Recruiter-register' component={RecruiterSignUp} />
+            <Route path='/Applicant-register' component={ApplicantSignUp} /> */}
         </Switch>
     );
     if (props.isAuthenticated) {
-		return (
-			<>
-                <Suspense fallback={
-                    <div id="preloader">
-                        <div className="sk-three-bounce">
-                            <div className="sk-child sk-bounce1"></div>
-                            <div className="sk-child sk-bounce2"></div>
-                            <div className="sk-child sk-bounce3"></div>
-                        </div>
-                    </div>  
-                   }
-                >
-                    <Index />
-                </Suspense>
-            </>
-        );
-	
-	}else{
-		return (
-			<div className="vh-100">
+        return (
+            <>
                 <Suspense fallback={
                     <div id="preloader">
                         <div className="sk-three-bounce">
@@ -70,13 +54,31 @@ function App (props) {
                             <div className="sk-child sk-bounce3"></div>
                         </div>
                     </div>
-                  }
+                }
+                >
+                    <Index />
+                </Suspense>
+            </>
+        );
+
+    } else {
+        return (
+            <div className="vh-100">
+                <Suspense fallback={
+                    <div id="preloader">
+                        <div className="sk-three-bounce">
+                            <div className="sk-child sk-bounce1"></div>
+                            <div className="sk-child sk-bounce2"></div>
+                            <div className="sk-child sk-bounce3"></div>
+                        </div>
+                    </div>
+                }
                 >
                     {routes}
                 </Suspense>
-			</div>
-		);
-	}
+            </div>
+        );
+    }
 };
 
 const mapStateToProps = (state) => {
@@ -85,6 +87,6 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default withRouter(connect(mapStateToProps)(App)); 
+export default withRouter(connect(mapStateToProps)(App));
 
 //export default App;
